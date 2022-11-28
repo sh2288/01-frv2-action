@@ -131,7 +131,7 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = 
+          server_addr = a5.855r.ga
           server_port = 7000
           [ssh22888]
           type = tcp
