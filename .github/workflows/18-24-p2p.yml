@@ -1,4 +1,4 @@
-name: 18-24-frv2
+name: 18-24-frv2-v6
 on:
   workflow_dispatch:
 #  schedule:
