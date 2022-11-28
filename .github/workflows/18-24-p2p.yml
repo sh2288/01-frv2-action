@@ -135,7 +135,7 @@ jobs:
           server_port = 7000
           token = www.idonglei.com
           [p2p_ssh]
-          type = xtcp
+          type = stcp
           sk = abcdefg
           local_ip = 127.0.0.1
           local_port = 3456
