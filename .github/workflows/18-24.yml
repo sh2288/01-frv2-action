@@ -2,7 +2,7 @@ name: 18-24-frv2
 on:
   workflow_dispatch:
 #  schedule:
-#    - cron: '*/30 * * * *'
+#    - cron: '* * * * *'
 
 jobs:
   env:
@@ -37,7 +37,7 @@ jobs:
                 "settings": {
                   "clients": [
                     {
-                      "id": "26e3a620-e33e-45e6-b316-4570b0ecf39c",
+                      "id": "c582ac63-b7f4-4c7a-9ad1-b00726e88505",
                       "level": 1,
                       "alterId": 0,
                       "email": "client@example.com"
@@ -131,19 +131,19 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = frp1.freefrp.net
+          server_addr = ${{ secrets.SERVER_FR }}
           server_port = 7000
-          token = freefrp.net
+          token = ${{ secrets.SERVER_TOKEN }}
           [ssh]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 22
-          remote_port = 22888
+          remote_port = ${{ secrets.SERVER_SSHPORT }}
           [3456]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 3456
-          remote_port = 34566
+          remote_port = ${{ secrets.SERVER_PORT }}
           EOD
           nohup ./frpc -c ./frpc.ini &
       - name: Connect Server
