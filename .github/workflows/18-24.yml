@@ -131,19 +131,19 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = ${{ secrets.SERVER_FR }}
+          server_addr = frp4.freefrp.net
           server_port = 7000
-          token = ${{ secrets.SERVER_TOKEN }}
-          [ssh]
+          token = freefrp.net
+          [ssh22888]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 22
-          remote_port = ${{ secrets.SERVER_SSHPORT }}
+          remote_port = 22888
           [3456]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 3456
-          remote_port = ${{ secrets.SERVER_PORT }}
+          remote_port = 34566
           EOD
           cat ./frpc.ini
           nohup ./frpc -c ./frpc.ini &
