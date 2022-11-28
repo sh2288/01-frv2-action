@@ -131,9 +131,9 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = frp2.freefrp.net
+          server_addr = kr.freefrp.buzz
           server_port = 7000
-          token = freefrp.net
+          token = www.idonglei.com
           [ssh22888]
           type = tcp
           local_ip = 127.0.0.1
