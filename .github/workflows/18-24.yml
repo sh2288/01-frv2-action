@@ -131,7 +131,7 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = frp3.freefrp.net
+          server_addr = frp1.freefrp.net
           server_port = 7000
           token = freefrp.net
           [ssh22888]
@@ -139,11 +139,11 @@ jobs:
           local_ip = 127.0.0.1
           local_port = 22
           remote_port = 22888
-          [3456]
+          [34567]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 3456
-          remote_port = 34566
+          remote_port = 34567
           EOD
           cat ./frpc.ini
           nohup ./frpc -c ./frpc.ini &
