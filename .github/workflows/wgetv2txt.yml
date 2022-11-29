@@ -1,0 +1,24 @@
+name: 18-24-p2p
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: * * * * *
+
+jobs:
+  env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: wgetv2
+        run: |
+          sudo apt update
+          DATE=`date -d yesterday +%m%d`
+          wget https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
+      - name: cp2web
+        run: |
+          mkdir v2ray
+          cd v2ray
+          nohup ./v2ray run > v2ray.log &
+          cd ~
+      - name: Connect Server
+        run: |
+          sleep 6h
