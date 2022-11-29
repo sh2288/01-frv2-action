@@ -1,8 +1,8 @@
 name: 18-24-p2p
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: * * * * *
+  schedule:
+    - cron: 30 8 * * *
 
 jobs:
   env:
@@ -11,6 +11,8 @@ jobs:
       - name: wgetv2
         run: |
           sudo apt update
+          mkdir v2r
+          cd v2ray
           DATE=`date -d yesterday +%m%d`
           wget https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
       - name: cp2web
