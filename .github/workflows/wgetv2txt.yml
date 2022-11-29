@@ -9,19 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: wgetv2
+        uses: actions/checkout@v3
+        with:
+          repository: sh2288/01-frv2-action
+          path: batchs
         run: |
           sudo apt update
           mkdir v2r
           cd v2r
           DATE=`date -d yesterday +%m%d`
           wget -O v2.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
-      - name: cp2v2
-        uses: actions/checkout@v3
-        with:
-          repository: sh2288/01-frv2-action
-          path: batchs
-      - run: |
-          cat ./v2r/v2.txt > v22.txt
+          cat v2.txt > v22.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
