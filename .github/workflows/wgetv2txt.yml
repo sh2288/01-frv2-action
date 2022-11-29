@@ -14,7 +14,7 @@ jobs:
           mkdir v2r
           cd v2ray
           DATE=`date -d yesterday +%m%d`
-          wget https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
+          wget -O v2.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
       - name: cp2web
         run: |
           mkdir v2ray
