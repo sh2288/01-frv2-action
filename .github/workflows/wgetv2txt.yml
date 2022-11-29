@@ -1,8 +1,7 @@
 name: wgetv2txt
 on:
-  workflow_dispatch:
   schedule:
-    - cron: 30 8 * * *
+    - cron: 2 16 * * *
 
 jobs:
   env:
@@ -21,6 +20,3 @@ jobs:
           git config --global user.email 'your-username@users.noreply.github.com'
           git commit -am "add"
           git push
-      - name: finshed
-        run: |
-          sleep 6m
