@@ -12,7 +12,7 @@ jobs:
         run: |
           sudo apt update
           mkdir v2r
-          cd v2ray
+          cd v2r
           DATE=`date -d yesterday +%m%d`
           wget -O v2.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
       - name: cp2v2
