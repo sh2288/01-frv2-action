@@ -2,7 +2,7 @@ name: 08-14-frv2
 on:
   workflow_dispatch:
   schedule:
-    - cron: 30 10 * * *
+    - cron: '50 10 * * *'
 
 jobs:
   env:
