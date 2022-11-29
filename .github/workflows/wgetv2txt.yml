@@ -18,7 +18,7 @@ jobs:
       - name: cp2v2
         uses: actions/checkout@v3
         with:
-          repository: 01-frv2-action/batchs
+          repository: 01-frv2-action
           path: batchs
       - run: |
           cat v2.txt > v22.txt
