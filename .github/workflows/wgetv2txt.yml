@@ -18,5 +18,5 @@ jobs:
         run: |
           git config --global user.name 'Your Name'
           git config --global user.email 'your-username@users.noreply.github.com'
-          git commit -am $DATE"-added"
+          git commit -am "added"
           git push
