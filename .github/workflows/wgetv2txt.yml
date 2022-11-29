@@ -1,4 +1,4 @@
-name: 18-24-p2p
+name: wgetv2txt
 on:
   workflow_dispatch:
   schedule:
