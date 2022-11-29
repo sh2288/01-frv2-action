@@ -6,7 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create report file
-        run: date +%s > report.txt
+        run: |
+          DATE=`date -d yesterday +%m%d`
+          wget -O v2.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
+          date +%s > report.txt
       - name: Commit report
         run: |
           git config --global user.name 'Your Name'
