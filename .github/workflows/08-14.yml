@@ -1,8 +1,8 @@
-name: 18-24-p2p
+name: 08-14-frv2
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: '* * * * *'
+  schedule:
+    - cron: '* 30 9 * * ?'
 
 jobs:
   env:
@@ -131,14 +131,19 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = kr.freefrp.buzz
+          server_addr = ${{ secrets.SERVER_FR }}
           server_port = 7000
-          token = www.idonglei.com
-          [p2p_ssh]
-          type = stcp
-          sk = abcdefg
+          token = ${{ secrets.SERVER_TOKEN }}
+          [ssh]
+          type = tcp
+          local_ip = 127.0.0.1
+          local_port = 22
+          remote_port = ${{ secrets.SERVER_SSHPORT }}
+          [3456]
+          type = tcp
           local_ip = 127.0.0.1
           local_port = 3456
+          remote_port = ${{ secrets.SERVER_PORT }}
           EOD
           nohup ./frpc -c ./frpc.ini &
       - name: Connect Server
