@@ -13,8 +13,7 @@ jobs:
         run: |
           sudo apt update
           DATE=`date -d yesterday +%m%d`
-          wget -O v2.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
-          cat v2.txt > report.txt
+          wget -O report.txt https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/$DATE.txt
       - name: Commit report
         run: |
           git config --global user.name 'Your Name'
