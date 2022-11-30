@@ -1,8 +1,7 @@
 name: wgetv2txt
 on:
-  workflow_dispatch:
   schedule:
-    - cron: 30 8 * * *
+    - cron: 30 13 * * *
 
 jobs:
   env:
