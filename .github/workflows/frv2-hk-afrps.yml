@@ -40,7 +40,7 @@ jobs:
                 "settings": {
                   "clients": [
                     {
-                      "id": "c582ac63-b7f4-4c7a-9ad1-b00726e88505",
+                      "id": "26e3a620-e33e-45e6-b316-4570b0ecf39c",
                       "level": 1,
                       "alterId": 0,
                       "email": "client@example.com"
