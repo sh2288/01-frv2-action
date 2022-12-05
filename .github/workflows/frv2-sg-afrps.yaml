@@ -1,4 +1,4 @@
-name: frv2-hk-430-1250
+name: frv2-sg-430-1250
 on:
   workflow_dispatch:
   schedule:
