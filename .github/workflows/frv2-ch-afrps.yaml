@@ -25,7 +25,6 @@ jobs:
           cd v2ray
           wget https://github.com/v2fly/v2ray-core/releases/download/v5.0.6/v2ray-linux-64.zip
           unzip v2ray-linux-64.zip
-#          cat > config.json << EOD
           base64 -d > config.json << EOD
           ewoJImxvZyI6IHsKCQkibG9nbGV2ZWwiOiAiaW5mbyIKCX0sCgkiaW5ib3VuZHMiOiBbCgkJewoJ
           CQkicG9ydCI6IDM0NTYsCgkJCSJwcm90b2NvbCI6ICJ2bWVzcyIsCgkJCSJhbGxvY2F0ZSI6IHsK
