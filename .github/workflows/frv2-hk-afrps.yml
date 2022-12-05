@@ -137,7 +137,7 @@ jobs:
           server_addr = hk.afrps.cn
           server_port = 7000
           token = afrps.cn
-          [ssh]
+          [ssh22888]
           type = tcp
           local_ip = 127.0.0.1
           local_port = 22
