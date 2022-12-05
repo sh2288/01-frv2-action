@@ -1,10 +1,10 @@
-name: frv2-hk-630-1250
+name: frv2-hk-650-110
 on:
   workflow_dispatch:
   schedule:
     - cron: 50 22 * * *
     - cron: 00 5 * * *
-    - cron: 50 10 * * *
+    - cron: 10 11 * * *
 
 
 jobs:
