@@ -1,10 +1,10 @@
 name: frv2-sgp-idonglei-430-1250
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 30 22 * * *
-    - cron: 40 4 * * *
-    - cron: 50 10 * * *
+#  schedule:
+#    - cron: 30 22 * * *
+#    - cron: 40 4 * * *
+#    - cron: 50 10 * * *
 
 jobs:
   env:
