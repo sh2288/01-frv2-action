@@ -86,3 +86,4 @@ jobs:
       - name: Connect Server
         run: |
           sleep 6h
+          exit
