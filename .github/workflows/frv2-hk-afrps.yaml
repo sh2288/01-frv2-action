@@ -134,7 +134,7 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = hk.afrps.cn
+          server_addr = sg.afrps.cn
           server_port = 7000
           token = afrps.cn
           [ssh22888]
