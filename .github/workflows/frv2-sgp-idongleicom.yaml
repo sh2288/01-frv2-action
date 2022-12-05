@@ -1,0 +1,88 @@
+name: frv2-sgp-idongleicom-430-1250
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 30 0 * * *
+    - cron: 40 6 * * *
+    - cron: 50 12 * * *
+
+jobs:
+  env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set ENV
+        run: |
+          sudo apt update
+          sudo apt -y install sshpass
+          sudo passwd runner << EOD
+          root
+          root
+          EOD
+      - name: Set v2ray
+        run: |
+          mkdir v2ray
+          cd v2ray
+          wget https://github.com/v2fly/v2ray-core/releases/download/v5.0.6/v2ray-linux-64.zip
+          unzip v2ray-linux-64.zip
+          base64 -d > config.json << EOD
+          ewoJImxvZyI6IHsKCQkibG9nbGV2ZWwiOiAiaW5mbyIKCX0sCgkiaW5ib3VuZHMiOiBbCgkJewoJ
+          CQkicG9ydCI6IDM0NTYsCgkJCSJwcm90b2NvbCI6ICJ2bWVzcyIsCgkJCSJhbGxvY2F0ZSI6IHsK
+          CQkJCSJzdHJhdGVneSI6ICJhbHdheXMiCgkJCX0sCgkJCSJzZXR0aW5ncyI6IHsKCQkJCSJjbGll
+          bnRzIjogWwoJCQkJCXsKCQkJCQkJImlkIjogIjI2ZTNhNjIwLWUzM2UtNDVlNi1iMzE2LTQ1NzBi
+          MGVjZjM5YyIsCgkJCQkJCSJsZXZlbCI6IDEsCgkJCQkJCSJhbHRlcklkIjogMCwKCQkJCQkJImVt
+          YWlsIjogImNsaWVudEBleGFtcGxlLmNvbSIKCQkJCQl9CgkJCQldLAoJCQkJImRpc2FibGVJbnNl
+          Y3VyZUVuY3J5cHRpb24iOiB0cnVlCgkJCX0sCgkJCSJzdHJlYW1TZXR0aW5ncyI6IHsKCQkJCSJu
+          ZXR3b3JrIjogIndzIiwKCQkJCSJ3c1NldHRpbmdzIjogewoJCQkJCSJjb25uZWN0aW9uUmV1c2Ui
+          OiB0cnVlLAoJCQkJCSJwYXRoIjogIi9ncmFwaHFsIgoJCQkJfSwKCQkJCSJzZWN1cml0eSI6ICJu
+          b25lIiwKCQkJCSJ0Y3BTZXR0aW5ncyI6IHsKCQkJCQkiaGVhZGVyIjogewoJCQkJCQkidHlwZSI6
+          ICJodHRwIiwKCQkJCQkJInJlc3BvbnNlIjogewoJCQkJCQkJInZlcnNpb24iOiAiMS4xIiwKCQkJ
+          CQkJCSJzdGF0dXMiOiAiMjAwIiwKCQkJCQkJCSJyZWFzb24iOiAiT0siLAoJCQkJCQkJImhlYWRl
+          cnMiOiB7CgkJCQkJCQkJIkNvbnRlbnQtVHlwZSI6IFsKCQkJCQkJCQkJImFwcGxpY2F0aW9uL29j
+          dGV0LXN0cmVhbSIsCgkJCQkJCQkJCSJhcHBsaWNhdGlvbi94LW1zZG93bmxvYWQiLAoJCQkJCQkJ
+          CQkidGV4dC9odG1sIiwKCQkJCQkJCQkJImFwcGxpY2F0aW9uL3gtc2hvY2t3YXZlLWZsYXNoIgoJ
+          CQkJCQkJCV0sCgkJCQkJCQkJIlRyYW5zZmVyLUVuY29kaW5nIjogWwoJCQkJCQkJCQkiY2h1bmtl
+          ZCIKCQkJCQkJCQldLAoJCQkJCQkJCSJDb25uZWN0aW9uIjogWwoJCQkJCQkJCQkia2VlcC1hbGl2
+          ZSIKCQkJCQkJCQldLAoJCQkJCQkJCSJQcmFnbWEiOiAibm8tY2FjaGUiCgkJCQkJCQl9CgkJCQkJ
+          CX0KCQkJCQl9CgkJCQl9CgkJCX0KCQl9CgldLAoJIm91dGJvdW5kcyI6IFsKCQl7CgkJCSJwcm90
+          b2NvbCI6ICJmcmVlZG9tIiwKCQkJInNldHRpbmdzIjoge30KCQl9LAoJCXsKCQkJInByb3RvY29s
+          IjogImJsYWNraG9sZSIsCgkJCSJzZXR0aW5ncyI6IHt9LAoJCQkidGFnIjogImJsb2NrZWQiCgkJ
+          fQoJXSwKCSJyb3V0aW5nIjogewoJCSJkb21haW5TdHJhdGVneSI6ICJBc0lzIiwKCQkicnVsZXMi
+          OiBbCgkJCXsKCQkJCSJ0eXBlIjogImZpZWxkIiwKCQkJCSJpcCI6IFsKCQkJCQkiMC4wLjAuMC84
+          IiwKCQkJCQkiMTAuMC4wLjAvOCIsCgkJCQkJIjEwMC42NC4wLjAvMTAiLAoJCQkJCSIxMjcuMC4w
+          LjAvOCIsCgkJCQkJIjE2OS4yNTQuMC4wLzE2IiwKCQkJCQkiMTcyLjE2LjAuMC8xMiIsCgkJCQkJ
+          IjE5Mi4wLjAuMC8yNCIsCgkJCQkJIjE5Mi4wLjIuMC8yNCIsCgkJCQkJIjE5Mi4xNjguMC4wLzE2
+          IiwKCQkJCQkiMTk4LjE4LjAuMC8xNSIsCgkJCQkJIjE5OC41MS4xMDAuMC8yNCIsCgkJCQkJIjIw
+          My4wLjExMy4wLzI0IiwKCQkJCQkiOjoxLzEyOCIsCgkJCQkJImZjMDA6Oi83IiwKCQkJCQkiZmU4
+          MDo6LzEwIiwKCQkJCQkiZ2VvaXA6cHJpdmF0ZSIKCQkJCV0sCgkJCQkib3V0Ym91bmRUYWciOiAi
+          YmxvY2tlZCIKCQkJfSwKCQkJewoJCQkJInR5cGUiOiAiZmllbGQiLAoJCQkJInByb3RvY29sIjog
+          WwoJCQkJCSJiaXR0b3JyZW50IgoJCQkJXSwKCQkJCSJvdXRib3VuZFRhZyI6ICJibG9ja2VkIgoJ
+          CQl9CgkJXQoJfQp9
+          EOD
+          nohup ./v2ray run > v2ray.log &
+          cd ~
+      - name: install frpc
+        run: |
+          wget https://github.com/fatedier/frp/releases/download/v0.45.0/frp_0.45.0_linux_amd64.tar.gz
+          tar -zxvf frp_0.45.0_linux_amd64.tar.gz
+          mv frp_0.45.0_linux_amd64 frp
+          cd frp
+          cat > frpc.ini << EOD
+          [common]
+          server_addr = us.freefrp.buzz
+          server_port = 7000
+          token = www.idonglei.com
+          [ssh22888]
+          type = tcp
+          local_ip = 127.0.0.1
+          local_port = 22
+          remote_port = ${{ secrets.SERVER_SSHPORT }}
+          [3456]
+          type = tcp
+          local_ip = 127.0.0.1
+          local_port = 3456
+          remote_port = ${{ secrets.SERVER_PORT }}
+          EOD
+          nohup ./frpc -c ./frpc.ini &
+      - name: Connect Server
+        run: |
+          sleep 6h
