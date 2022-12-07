@@ -24,104 +24,39 @@ jobs:
           cd v2ray
           wget https://github.com/v2fly/v2ray-core/releases/download/v5.0.6/v2ray-linux-64.zip
           unzip v2ray-linux-64.zip
-          cat > config.json << EOD
-          {
-            "log": {
-              "loglevel": "info"
-            },
-            "inbounds": [
-              {
-                "port": 3456,
-                "protocol": "vmess",
-                "allocate": {
-                  "strategy": "always"
-                },
-                "settings": {
-                  "clients": [
-                    {
-                      "id": "26e3a620-e33e-45e6-b316-4570b0ecf39c",
-                      "level": 1,
-                      "alterId": 0,
-                      "email": "client@example.com"
-                    }
-                  ],
-                  "disableInsecureEncryption": true
-                },
-                "streamSettings": {
-                  "network": "ws",
-                  "wsSettings": {
-                    "connectionReuse": true,
-                    "path": "/graphql"
-                  },
-                  "security": "none",
-                  "tcpSettings": {
-                    "header": {
-                      "type": "http",
-                      "response": {
-                        "version": "1.1",
-                        "status": "200",
-                        "reason": "OK",
-                        "headers": {
-                          "Content-Type": [
-                            "application/octet-stream",
-                            "application/x-msdownload",
-                            "text/html",
-                            "application/x-shockwave-flash"
-                          ],
-                          "Transfer-Encoding": ["chunked"],
-                          "Connection": ["keep-alive"],
-                          "Pragma": "no-cache"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ],
-            "outbounds": [
-              {
-                "protocol": "freedom",
-                "settings": {}
-              },
-              {
-                "protocol": "blackhole",
-                "settings": {},
-                "tag": "blocked"
-              }
-            ],
-            "routing": {
-              "domainStrategy": "AsIs",
-              "rules": [
-                {
-                  "type": "field",
-                  "ip": [
-                    "0.0.0.0/8",
-                    "10.0.0.0/8",
-                    "100.64.0.0/10",
-                    "127.0.0.0/8",
-                    "169.254.0.0/16",
-                    "172.16.0.0/12",
-                    "192.0.0.0/24",
-                    "192.0.2.0/24",
-                    "192.168.0.0/16",
-                    "198.18.0.0/15",
-                    "198.51.100.0/24",
-                    "203.0.113.0/24",
-                    "::1/128",
-                    "fc00::/7",
-                    "fe80::/10",
-                    "geoip:private"
-                  ],
-                  "outboundTag": "blocked"
-                },
-                {
-                  "type": "field",
-                  "protocol": ["bittorrent"],
-                  "outboundTag": "blocked"
-                }
-              ]
-            }
-          }
+          base64 -d > config.json << EOD
+          ewoJImxvZyI6IHsKCQkibG9nbGV2ZWwiOiAiaW5mbyIKCX0sCgkiaW5ib3VuZHMiOiBbCgkJewoJ
+          CQkicG9ydCI6IDM0NTYsCgkJCSJwcm90b2NvbCI6ICJ2bWVzcyIsCgkJCSJhbGxvY2F0ZSI6IHsK
+          CQkJCSJzdHJhdGVneSI6ICJhbHdheXMiCgkJCX0sCgkJCSJzZXR0aW5ncyI6IHsKCQkJCSJjbGll
+          bnRzIjogWwoJCQkJCXsKCQkJCQkJImlkIjogIjI2ZTNhNjIwLWUzM2UtNDVlNi1iMzE2LTQ1NzBi
+          MGVjZjM5YyIsCgkJCQkJCSJsZXZlbCI6IDEsCgkJCQkJCSJhbHRlcklkIjogMCwKCQkJCQkJImVt
+          YWlsIjogImNsaWVudEBleGFtcGxlLmNvbSIKCQkJCQl9CgkJCQldLAoJCQkJImRpc2FibGVJbnNl
+          Y3VyZUVuY3J5cHRpb24iOiB0cnVlCgkJCX0sCgkJCSJzdHJlYW1TZXR0aW5ncyI6IHsKCQkJCSJu
+          ZXR3b3JrIjogIndzIiwKCQkJCSJ3c1NldHRpbmdzIjogewoJCQkJCSJjb25uZWN0aW9uUmV1c2Ui
+          OiB0cnVlLAoJCQkJCSJwYXRoIjogIi9ncmFwaHFsIgoJCQkJfSwKCQkJCSJzZWN1cml0eSI6ICJu
+          b25lIiwKCQkJCSJ0Y3BTZXR0aW5ncyI6IHsKCQkJCQkiaGVhZGVyIjogewoJCQkJCQkidHlwZSI6
+          ICJodHRwIiwKCQkJCQkJInJlc3BvbnNlIjogewoJCQkJCQkJInZlcnNpb24iOiAiMS4xIiwKCQkJ
+          CQkJCSJzdGF0dXMiOiAiMjAwIiwKCQkJCQkJCSJyZWFzb24iOiAiT0siLAoJCQkJCQkJImhlYWRl
+          cnMiOiB7CgkJCQkJCQkJIkNvbnRlbnQtVHlwZSI6IFsKCQkJCQkJCQkJImFwcGxpY2F0aW9uL29j
+          dGV0LXN0cmVhbSIsCgkJCQkJCQkJCSJhcHBsaWNhdGlvbi94LW1zZG93bmxvYWQiLAoJCQkJCQkJ
+          CQkidGV4dC9odG1sIiwKCQkJCQkJCQkJImFwcGxpY2F0aW9uL3gtc2hvY2t3YXZlLWZsYXNoIgoJ
+          CQkJCQkJCV0sCgkJCQkJCQkJIlRyYW5zZmVyLUVuY29kaW5nIjogWwoJCQkJCQkJCQkiY2h1bmtl
+          ZCIKCQkJCQkJCQldLAoJCQkJCQkJCSJDb25uZWN0aW9uIjogWwoJCQkJCQkJCQkia2VlcC1hbGl2
+          ZSIKCQkJCQkJCQldLAoJCQkJCQkJCSJQcmFnbWEiOiAibm8tY2FjaGUiCgkJCQkJCQl9CgkJCQkJ
+          CX0KCQkJCQl9CgkJCQl9CgkJCX0KCQl9CgldLAoJIm91dGJvdW5kcyI6IFsKCQl7CgkJCSJwcm90
+          b2NvbCI6ICJmcmVlZG9tIiwKCQkJInNldHRpbmdzIjoge30KCQl9LAoJCXsKCQkJInByb3RvY29s
+          IjogImJsYWNraG9sZSIsCgkJCSJzZXR0aW5ncyI6IHt9LAoJCQkidGFnIjogImJsb2NrZWQiCgkJ
+          fQoJXSwKCSJyb3V0aW5nIjogewoJCSJkb21haW5TdHJhdGVneSI6ICJBc0lzIiwKCQkicnVsZXMi
+          OiBbCgkJCXsKCQkJCSJ0eXBlIjogImZpZWxkIiwKCQkJCSJpcCI6IFsKCQkJCQkiMC4wLjAuMC84
+          IiwKCQkJCQkiMTAuMC4wLjAvOCIsCgkJCQkJIjEwMC42NC4wLjAvMTAiLAoJCQkJCSIxMjcuMC4w
+          LjAvOCIsCgkJCQkJIjE2OS4yNTQuMC4wLzE2IiwKCQkJCQkiMTcyLjE2LjAuMC8xMiIsCgkJCQkJ
+          IjE5Mi4wLjAuMC8yNCIsCgkJCQkJIjE5Mi4wLjIuMC8yNCIsCgkJCQkJIjE5Mi4xNjguMC4wLzE2
+          IiwKCQkJCQkiMTk4LjE4LjAuMC8xNSIsCgkJCQkJIjE5OC41MS4xMDAuMC8yNCIsCgkJCQkJIjIw
+          My4wLjExMy4wLzI0IiwKCQkJCQkiOjoxLzEyOCIsCgkJCQkJImZjMDA6Oi83IiwKCQkJCQkiZmU4
+          MDo6LzEwIiwKCQkJCQkiZ2VvaXA6cHJpdmF0ZSIKCQkJCV0sCgkJCQkib3V0Ym91bmRUYWciOiAi
+          YmxvY2tlZCIKCQkJfSwKCQkJewoJCQkJInR5cGUiOiAiZmllbGQiLAoJCQkJInByb3RvY29sIjog
+          WwoJCQkJCSJiaXR0b3JyZW50IgoJCQkJXSwKCQkJCSJvdXRib3VuZFRhZyI6ICJibG9ja2VkIgoJ
+          CQl9CgkJXQoJfQp9
           EOD
           nohup ./v2ray run > v2ray.log &
           cd ~
@@ -150,4 +85,5 @@ jobs:
           nohup ./frpc -c ./frpc.ini &
       - name: Connect Server
         run: |
-          sleep 6h
+          sleep 5.8h
+          exit

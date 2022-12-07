@@ -85,5 +85,5 @@ jobs:
           nohup ./frpc -c ./frpc.ini &
       - name: Connect Server
         run: |
-          sleep 6h
+          sleep 5.8h
           exit
