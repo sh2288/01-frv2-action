@@ -2,9 +2,11 @@ name: frv2-sj-430-1250
 on:
   workflow_dispatch:
   schedule:
+    - cron: 30 4 * * *
+    - cron: 30 10 * * *
+    - cron: 30 16 * * *
     - cron: 30 22 * * *
-    - cron: 40 4 * * *
-    - cron: 50 10 * * *
+    - cron: 30 4 * * *
 
 jobs:
   env:

@@ -2,9 +2,10 @@ name: frv2-sg-650-110
 on:
   workflow_dispatch:
   schedule:
-    - cron: 50 22 * * *
-    - cron: 00 5 * * *
-    - cron: 10 11 * * *
+    - cron: 30 0 * * *
+    - cron: 30 6 * * *
+    - cron: 30 12 * * *
+    - cron: 30 18 * * *
 
 
 jobs:
