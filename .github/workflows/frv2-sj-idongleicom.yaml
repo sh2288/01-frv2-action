@@ -70,7 +70,7 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = sj.freefrp.buzz
+          server_addr = sj.frp.wiki
           server_port = 7000
           token = www.idonglei.com
           [ssh22888]
