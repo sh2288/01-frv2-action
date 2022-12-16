@@ -1,7 +1,11 @@
-name: frv2-sgp-idongleicom-430-1250
+name: frv2-k3-v1
 on:
   workflow_dispatch:
-
+  schedule:
+    - cron: 0 4 * * *
+    - cron: 0 10 * * *
+    - cron: 0 16 * * *
+    - cron: 0 22 * * *
 
 jobs:
   env:
@@ -65,9 +69,11 @@ jobs:
           cd frp
           cat > frpc.ini << EOD
           [common]
-          server_addr = sgp.frp.wiki
-          server_port = 7000
-          token = www.idonglei.com
+          server_addr = a53.855r.ga
+          server_port = 80
+          token = ${{ secrets.SERVER_SSHPORT }}
+          tls_enable = true
+          protocol = websocket
           [ssh22888]
           type = tcp
           local_ip = 127.0.0.1
