@@ -1,12 +1,7 @@
 name: frv2-sj-idonglei-430-1250
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 4 * * *
-    - cron: 0 10 * * *
-    - cron: 0 16 * * *
-    - cron: 0 22 * * *
-    - cron: 0 4 * * *
+
 
 jobs:
   env:
