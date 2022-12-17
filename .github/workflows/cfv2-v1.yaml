@@ -66,7 +66,7 @@ jobs:
           sudo wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i cloudflared-linux-amd64.deb
           sysctl -w net.core.rmem_max=2500000
           base64 -d > config.yaml << EOD
-          dHVubmVsOiBhNGM1YTY3MS0zNzI0LTRhNmUtYmVkYy02NGVhNzliMDIxMGEKY3JlZGVudGlhbHMtZmlsZTogYTRjNWE2NzEtMzcyNC00YTZlLWJlZGMtNjRlYTc5YjAyMTBhLmpzb24KaW5ncmVzczoKICAtIGhvc3RuYW1lOiB0ZXN0Mi4zMzY2LmdhCiAgICBwYXRoOiAvZ3JhcGhxbAogICAgc2VydmljZTogaHR0cDovL2xvY2FsaG9zdDozNDU2CiAgLSBob3N0bmFtZTogdGVzdDIuMzM2Ni5nYQogICAgc2VydmljZTogaHR0cDovL2xvY2FsaG9zdDo4MAogIC0gc2VydmljZTogaHR0cF9zdGF0dXM6NDA0
+          dHVubmVsOiBhNGM1YTY3MS0zNzI0LTRhNmUtYmVkYy02NGVhNzliMDIxMGEKY3JlZGVudGlhbHMtZmlsZTogYTRjNWE2NzEtMzcyNC00YTZlLWJlZGMtNjRlYTc5YjAyMTBhLmpzb24KaW5ncmVzczoKICAtIGhvc3RuYW1lOiB0ZXN0Mi4zMzY2LmdhCiAgICBwYXRoOiAvZ3JhcGhxbAogICAgc2VydmljZTogd3M6Ly9sb2NhbGhvc3Q6MzQ1NgogIC0gaG9zdG5hbWU6IHRlc3QyLjMzNjYuZ2EKICAgIHNlcnZpY2U6IGh0dHA6Ly9sb2NhbGhvc3Q6ODAKICAtIHNlcnZpY2U6IGh0dHBfc3RhdHVzOjQwNA==
           EOD
           base64 -d > a4c5a671-3724-4a6e-bedc-64ea79b0210a.json << EOD
           eyJBY2NvdW50VGFnIjoiZTJiMjM3MGRiZGNmNjE4Y2JmN2EyMzI0ZDkzOGYxMDUiLCJUdW5uZWxTZWNyZXQiOiJyNDZiYStVdG85NHhBc1plOVV1ZmRCQTRRbVl3cTgzTTZ5LzZLNmd0TVFvPSIsIlR1bm5lbElEIjoiYTRjNWE2NzEtMzcyNC00YTZlLWJlZGMtNjRlYTc5YjAyMTBhIn0=
