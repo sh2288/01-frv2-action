@@ -1,11 +1,6 @@
 name: frv2-k3-v1
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 4 * * *
-    - cron: 0 10 * * *
-    - cron: 0 16 * * *
-    - cron: 0 22 * * *
 
 jobs:
   env:
